@@ -8,7 +8,7 @@ spec:
   goTemplate: true
   generators:
     - git:
-        repoURL: https://github.com/<DEIN-ACCOUNT>/kaffee-shop-gitops.git
+        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
         revision: main
         directories:
           - path: apps/shop/overlays/*
@@ -18,7 +18,7 @@ spec:
     spec:
       project: nordlicht
       source:
-        repoURL: https://github.com/<DEIN-ACCOUNT>/kaffee-shop-gitops.git
+        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
         targetRevision: main
         path: '{{ .path.path }}'
       destination:
