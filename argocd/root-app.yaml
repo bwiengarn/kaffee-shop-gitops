@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
-    targetRevision: main
+    targetRevision: master
     path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
