@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
     targetRevision: master
-    path: demo/*
+    path: demo/tenants
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
