@@ -7,15 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    - repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
-      targetRevision: master
-      path: demo/tenants/melita
-    - repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
-      targetRevision: master
-      path: demo/tenants/tschibo
-    - repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
-      targetRevision: master
-      path: demo/tenants/nordlicht
+    repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
+    targetRevision: master
+    path: demo/appsets
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
