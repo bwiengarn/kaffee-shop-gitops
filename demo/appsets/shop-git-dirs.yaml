@@ -1,28 +1,39 @@
-# Git-Directory-Generator: jedes Verzeichnis unter apps/shop/overlays/ wird eine Application
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: kaffee-git-dirs
+  name: tenants
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
-  goTemplate: true
   generators:
     - git:
-        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
+        repoURL: https://github.com/OutOfContext/kaffee-shop-gitops
         revision: master
         directories:
-          - path: apps/shop/overlays/*
+          - path: demo/tenants/*/*      # tenant/env-Struktur
   template:
     metadata:
-      name: 'shop-{{ .path.basename }}'
+      name: "{{path[3]}}-{{path[4]}}"                 # z. B. tschibo-prod
+      labels:
+        layer: "tenants"
+        tenant: "{{path[3]}}"
+        environment: "{{path[4]}}"
     spec:
       project: nordlicht
       source:
-        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
+        repoURL: https://github.com/OutOfContext/kaffee-shop-gitops
         targetRevision: master
-        path: '{{ .path.path }}'
+        path: "{{path}}"                              # direktes Helm-Chart
+        helm:
+          releaseName: "{{path[3]}}-{{path[4]}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'shop-{{ .path.basename }}'
+        namespace: "{{path[3]}}-{{path[4]}}"
       syncPolicy:
-        syncOptions: [CreateNamespace=true]
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
