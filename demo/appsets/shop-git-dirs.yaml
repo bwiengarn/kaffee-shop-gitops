@@ -8,7 +8,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/OutOfContext/kaffee-shop-gitops
+        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops
         revision: master
         directories:
           - path: demo/tenants/*/*      # tenant/env-Struktur
@@ -22,7 +22,7 @@ spec:
     spec:
       project: nordlicht
       source:
-        repoURL: https://github.com/OutOfContext/kaffee-shop-gitops
+        repoURL: https://github.com/bwiengarn/kaffee-shop-gitops
         targetRevision: master
         path: "{{path}}"                              # direktes Helm-Chart
         helm:
