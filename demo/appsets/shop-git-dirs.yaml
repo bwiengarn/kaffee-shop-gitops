@@ -20,7 +20,7 @@ spec:
         tenant: "{{path[2]}}"
         environment: "{{path[3]}}"
     spec:
-      project: nordlicht
+      project: kaffee-shops
       source:
         repoURL: https://github.com/bwiengarn/kaffee-shop-gitops
         targetRevision: master
