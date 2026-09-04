@@ -9,7 +9,7 @@ spec:
   project: nordlicht
   source:
     repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
-    targetRevision: main
+    targetRevision: master
     path: apps/shop/overlays/dev
   destination:
     server: https://kubernetes.default.svc
