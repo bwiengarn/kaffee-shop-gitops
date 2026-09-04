@@ -5,7 +5,7 @@ metadata:
   name: kaffee-root
   namespace: argocd
 spec:
-  project: default
+  project: nordlicht
   source:
     repoURL: https://github.com/bwiengarn/kaffee-shop-gitops.git
     targetRevision: master
